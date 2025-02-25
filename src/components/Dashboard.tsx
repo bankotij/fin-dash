@@ -1,6 +1,10 @@
+import { Sidebar } from "./Sidebar";
+
 export function Dashboard() {
   return (
-      <h1>Hello!</h1>
+      <>
+        <Sidebar/>
+      </>
   )
 }
 
