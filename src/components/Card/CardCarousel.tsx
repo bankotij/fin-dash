@@ -7,7 +7,6 @@ interface CreditCardProps {
 	gradientTo: string;
 }
 
-
 const CreditCard = ({
 	balance,
 	cardHolder,
@@ -62,7 +61,7 @@ export const CardCarousel = () => {
 
 	return (
 		<div className="rounded-xl">
-			<div className="flex items-center justify-between p-6 pl-0 pr-0 ">
+			<div className="flex items-center justify-between pb-5">
 				<h2 className="text-lg font-semibold">My Cards</h2>
 				<button className="text-sm font-medium text-primary-600 hover:bg-gray-50 px-3 py-1 rounded-md transition-colors">
 					See All
