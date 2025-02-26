@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { BalanceHistoryTracker } from "./BalanceHistory";
-import { ExpenseStatistics } from "../Charts/ExpenseStatistics";
-import { RecentTransactions } from "../Charts/RecentTransactions";
-import { WeeklyActivityChart } from "../Charts/WeeklyExpenseChart";
+import { ExpenseStatistics } from "./Charts/ExpenseStatistics";
+import { RecentTransactions } from "./Charts/RecentTransactions";
+import { WeeklyActivityChart } from "./Charts/WeeklyExpenseChart";
 import { SAMPLE_TRANSACTIONS } from "../utils/mock/mockData";
 import { CardCarousel } from "./Card/CardCarousel";
 import { Layout, LayoutProps } from "./Containers/Layout";

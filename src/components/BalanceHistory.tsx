@@ -32,11 +32,6 @@ const options: ChartOptions<"line"> = {
   plugins: {
     legend: {
       display: false,
-      position: "top",
-      align: "end",
-      labels: {
-        usePointStyle: false,
-      },
     },
     tooltip: {
       backgroundColor: "white",
