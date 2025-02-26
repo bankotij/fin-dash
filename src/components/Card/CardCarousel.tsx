@@ -1,3 +1,7 @@
+import axios from "axios";
+import { API_BASE_URL } from "../../utils/mock/mockData";
+import { useEffect, useState } from "react";
+
 // TODO: Match this as per figma.
 interface CreditCardProps {
 	balance: string;
@@ -32,32 +36,26 @@ const CreditCard = ({
 );
 
 export const CardCarousel = () => {
-	const cards = [
-		{
-			balance: "$5,756",
-			cardHolder: "Eddy Cusuma",
-			validThru: "12/22",
-			cardNumber: "3778 **** **** 1234",
-			gradientFrom: "from-gray-500",
-			gradientTo: "to-black",
-		},
-		{
-			balance: "$2,345",
-			cardHolder: "Eddy Cusuma",
-			validThru: "03/25",
-			cardNumber: "5421 **** **** 9876",
-			gradientFrom: "from-purple-600",
-			gradientTo: "to-purple-400",
-		},
-		{
-			balance: "$8,901",
-			cardHolder: "Eddy Cusuma",
-			validThru: "09/23",
-			cardNumber: "6011 **** **** 5432",
-			gradientFrom: "from-green-600",
-			gradientTo: "to-green-400",
-		},
-	];
+	const [isLoading, setIsLoading] = useState(true);
+	const [isError, setIsError] = useState(false);
+	const [cards, setCards] = useState<CreditCardProps[]>([]);
+	useEffect(() => {
+		axios.get(API_BASE_URL + "/api/getCards").then((res) => {
+			console.log(res);
+			if (res.status === 200) {
+				setCards(res.data.body.cards);
+			} else {
+				setIsError(true);
+				console.log("Error fetching cards");
+			}
+			setIsLoading(false);
+		});
+	}, []);
+
+
+	if (isError) {
+		return <div>Error fetching cards</div>;
+	}
 
 	return (
 		<div className="rounded-xl">
@@ -67,13 +65,15 @@ export const CardCarousel = () => {
 					See All
 				</button>
 			</div>
-
-			{/* Scrollable Cards Container */}
-			<div className="flex space-x-4 overflow-x-auto scrollbar">
-				{cards.map((card, index) => (
-					<CreditCard key={index} {...card} />
-				))}
-			</div>
+			{isLoading ? (
+				<div>Loading...</div>
+			) : (
+				<div className="flex space-x-4 overflow-x-auto scrollbar">
+					{cards.map((card, index) => (
+						<CreditCard key={index} {...card} />
+					))}
+				</div>
+			)}
 		</div>
 	);
 };
