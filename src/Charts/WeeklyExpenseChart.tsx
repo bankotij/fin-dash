@@ -43,6 +43,9 @@ const options: ChartOptions<"bar"> = {
 			padding: 12,
 			displayColors: false,
 		},
+		datalabels: {
+			display: false,
+		},
 	},
 	scales: {
 		x: {
@@ -77,6 +80,7 @@ const data = {
 			borderRadius: 10,
 			order: 1,
 			barPercentage: 0.4,
+			borderSkipped: false,
 		},
 		{
 			label: "Deposit",
@@ -85,6 +89,7 @@ const data = {
 			borderRadius: 10,
 			order: 2,
 			barPercentage: 0.4,
+			borderSkipped: false,
 		},
 	],
 };
