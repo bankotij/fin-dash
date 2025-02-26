@@ -1,4 +1,3 @@
-import Header from "../Navigation/Header";
 import { BaseLayoutCard } from "./BaseLayoutCard";
 
 export type LayoutProps = {
@@ -14,7 +13,6 @@ export const Layout = ({
 }: LayoutProps) => {
 	return (
 		<>
-			<Header />
 			<div className="p-6 lg:ml-64">
 				<div className="grid grid-cols-1 gap-6">
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
