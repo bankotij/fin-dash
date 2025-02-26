@@ -39,11 +39,11 @@ export const Layout = ({
 				</div>
 
 				{/* Row 3: First card 1/3, Second card 2/3 */}
-				<div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+				<div className="grid grid-cols-1 lg:grid-cols-10 gap-6">
 					{ThirdRowElements.map((element, index) => (
 						<div 
 							key={`third-row-${index}`} 
-							className={`${index === 0 ? 'lg:col-span-1' : 'lg:col-span-2'}`}
+							className={`${index === 0 ? 'lg:col-span-4' : 'lg:col-span-6'}`}
 						>
 							{<BaseLayoutCard children={element} />}
 						</div>

@@ -61,10 +61,11 @@ const options: ChartOptions<"line"> = {
       grid: {
         color: "#F3F3F5",
       },
-      min: 0,
-      max: 500,
+	  // TODO: Make this dynamic
+	  min: 0,
+      max: 25000,
       ticks: {
-        stepSize: 100,
+        stepSize: 2500,
       },
       border: {
         dash: [5, 5],
@@ -74,11 +75,11 @@ const options: ChartOptions<"line"> = {
 };
 
 const initialData = {
-  labels: ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
+  labels: ["July", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
   datasets: [
     {
       label: "Balance",
-      data: [230, 260, 300, 280, 320, 350, 370],
+      data: [3042, 6066 , 22505, 10402, 18002, 8471, 15231],
       borderColor: "#4070FF",
       // This placeholder will be replaced with the gradient
       backgroundColor: "rgba(64,112,255,0.3)",
