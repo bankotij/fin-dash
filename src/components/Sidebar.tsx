@@ -1,5 +1,6 @@
 import { HomeIcon, SettingsIcon } from "lucide-react";
 import { LinkWithIcon } from "./Navigation/LinkWithIcon";
+import { SoarTask } from "./common/Logos/SoarTask";
 
 /*
   TODO:
@@ -12,19 +13,23 @@ export function Sidebar() {
 		<>
 			<aside
 				id="default-sidebar"
-				className="fixed top-0 left-0 z-40 w-64 h-screen  transition-transform -translate-x-full sm:translate-x-0"
+				className="fixed top-0 left-0 z-40 w-64 h-screen  transition-transform -translate-x-full lg:translate-x-0"
 				aria-label="Sidebar"
 			>
 				<div className="h-full px-3 py-4 overflow-y-auto bg-white">
+					
 					<ul className="space-y-2 font-medium">
-						<li>
+						<li className="mb-5 ml-4 ">
+							<SoarTask />
+						</li>
+						<li className=" ml-4 ">
 							<LinkWithIcon
 								href="#"
 								text={"Dashboard"}
 								icon={HomeIcon}
 							/>
 						</li>
-						<li>
+						<li className=" ml-4 ">
 							<LinkWithIcon
 								href="#"
 								text={"Settings"}
