@@ -1,8 +1,8 @@
 import { HomeIcon, SettingsIcon } from "lucide-react";
-import { LinkWithIcon } from "./Navigation/LinkWithIcon";
-import { SoarTask } from "./common/Logos/SoarTask";
+import { LinkWithIcon } from "./LinkWithIcon";
+import { SoarTask } from "../common/Logos/SoarTask";
 
-export function Sidebar({ isOpen, setIsOpen }) {
+export function Sidebar({ isOpen, setIsOpen, activeRoute }: { isOpen: boolean; setIsOpen: (value: boolean) => void; activeRoute: string }) {
 	return (
 		<>
 			{/* Backdrop - only visible when sidebar is open on mobile */}
@@ -27,14 +27,16 @@ export function Sidebar({ isOpen, setIsOpen }) {
 						</li>
 						<li className="ml-4">
 							<LinkWithIcon
-								href="#"
+								href="/"
+								isActive={activeRoute === "/"}
 								text={"Dashboard"}
 								icon={HomeIcon}
 							/>
 						</li>
 						<li className="ml-4">
 							<LinkWithIcon
-								href="#"
+								href="/settings"
+								isActive={activeRoute === "/settings"}
 								text={"Settings"}
 								icon={SettingsIcon}
 							/>

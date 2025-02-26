@@ -69,3 +69,11 @@ export const SAMPLE_TRANSACTIONS = [
 		type: "transfer" as const,
 	},
 ];
+
+export const SAMPLE_WEEKLY_EXPENSE_DATA = {
+	labels: ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
+	datasets: {
+		withdrawData: [450, 340, 320, 470, 150, 380, 390],
+		depositData: [230, 120, 260, 360, 230, 230, 330],
+	},
+};

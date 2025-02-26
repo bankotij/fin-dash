@@ -7,8 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+	"mocks": "npm run dev -w vite-plugin-mock-server/example"
   },
+  "workspaces" : [
+    "vite-plugin-mock-server/example"
+  ],
   "dependencies": {
     "@chakra-ui/toast": "^7.0.2",
     "@tailwindcss/vite": "^4.0.8",

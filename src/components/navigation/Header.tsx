@@ -1,7 +1,7 @@
 import { Search, Settings, Bell, User2, Menu } from "lucide-react";
 import { useState } from "react";
 
-const Header = ({ toggleSidebar }) => {
+const Header = ({ toggleSidebar, contentTitle }) => {
 	const [searchVisible, setSearchVisible] = useState(false);
 
 	return (
@@ -17,7 +17,7 @@ const Header = ({ toggleSidebar }) => {
 							<Menu className="h-6 w-6 text-gray-700" />
 						</button>
 						<h2 className="text-2xl font-semibold text-gray-700">
-							Overview
+							{contentTitle}
 						</h2>
 					</div>
 

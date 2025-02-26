@@ -14,3 +14,5 @@ export function BaseLayoutCard({
 
 	return <div className={combinedClasses}>{children}</div>;
 }
+
+
