@@ -1,5 +1,5 @@
 import { HomeIcon, SettingsIcon } from "lucide-react";
-import { LinkWithIcon } from "./navigation/LinkWithIcon";
+import { LinkWithIcon } from "./Navigation/LinkWithIcon";
 
 /*
   TODO:

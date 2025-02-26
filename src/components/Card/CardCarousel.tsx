@@ -69,7 +69,7 @@ export const CardCarousel = () => {
 			</div>
 
 			{/* Scrollable Cards Container */}
-			<div className="flex space-x-4 overflow-x-auto ">
+			<div className="flex space-x-4 overflow-x-auto scrollbar">
 				{cards.map((card, index) => (
 					<CreditCard key={index} {...card} />
 				))}
