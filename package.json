@@ -4,13 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "install": "npm install",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "mocks": "npm run dev -w vite-plugin-mock-server/example"
-}
+},
   "workspaces": [
     "vite-plugin-mock-server/example"
   ],
