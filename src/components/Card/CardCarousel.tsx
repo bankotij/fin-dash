@@ -1,6 +1,10 @@
 import axios from "axios";
 import { API_BASE_URL } from "../../utils/mock/mockData";
 import { useEffect, useState } from "react";
+import Loader, {
+	CardLoader,
+	FinanceCardLoader,
+} from "../common/Loaders/Loader";
 
 // TODO: Match this as per figma.
 interface CreditCardProps {
@@ -52,7 +56,6 @@ export const CardCarousel = () => {
 		});
 	}, []);
 
-
 	if (isError) {
 		return <div>Error fetching cards</div>;
 	}
@@ -66,7 +69,11 @@ export const CardCarousel = () => {
 				</button>
 			</div>
 			{isLoading ? (
-				<div>Loading...</div>
+				<div className="flex space-x-4 overflow-x-auto scrollbar">
+					<FinanceCardLoader variant="blue" />
+					<FinanceCardLoader variant="purple" />
+
+				</div>
 			) : (
 				<div className="flex space-x-4 overflow-x-auto scrollbar">
 					{cards.map((card, index) => (

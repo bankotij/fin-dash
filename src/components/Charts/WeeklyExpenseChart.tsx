@@ -14,6 +14,7 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_BASE_URL } from "../../utils/mock/mockData";
+import { ChartLoader } from "../common/Loaders/Loader";
 
 ChartJS.register(
 	CategoryScale,
@@ -129,7 +130,7 @@ export function WeeklyActivityChart() {
 			</div>
 
 			{isLoading ? (
-				<div>Loading...</div>
+				<ChartLoader chartType="bar" />
 			) : (
 				<div style={{ height: "300px" }}>
 					<Bar options={options} data={data} />

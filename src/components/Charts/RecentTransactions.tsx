@@ -2,6 +2,7 @@ import axios from "axios";
 import { CreditCard, DollarSign } from "lucide-react";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../../utils/mock/mockData";
+import { CardLoader } from "../common/Loaders/Loader";
 
 interface Transaction {
 	id: string;
@@ -54,12 +55,14 @@ export const RecentTransactions = () => {
 	if (isError) {
 		return <div>Error fetching cards</div>;
 	}
-	
+
 	return (
 		<>
 			<h2 className="text-lg font-semibold mb-4">Recent Transactions</h2>
 			{isLoading ? (
-				<div>Loading...</div>
+				<div className="space-y-4 max-h-[216px] overflow-y-auto pr-2 scrollbar">
+					<CardLoader variant="purple" text="Loading..." />
+				</div>
 			) : (
 				<div className="space-y-4 max-h-[216px] overflow-y-auto pr-2 scrollbar">
 					{transactions.map((transaction) => (
