@@ -1,8 +1,7 @@
-import {  useState } from "react";
-import { Sidebar } from "./Navigation/Sidebar";
+import {  useContext, useEffect } from "react";
 import Header from "./Navigation/Header";
+import { AppContext } from "../utils/context/AppProvider";
 
-// TODO: Replace temp elements with actual ones
 interface ContentProps {
 	contentTitle: string;
 	activeRoute: string;
@@ -10,15 +9,14 @@ interface ContentProps {
 }
 
 export function Content({RouteComponent, contentTitle, activeRoute}: ContentProps) {
-	const [sidebarOpen, setSidebarOpen] = useState(false);
-	const toggleSidebar = () => {
-		setSidebarOpen(!sidebarOpen);
-	};
+	const { sidebarContext } = useContext(AppContext);
+	useEffect(() => {
+		sidebarContext.setActiveRoute(activeRoute);
+	}, [activeRoute, sidebarContext]);
 
 	return (
 		<>
-			<Sidebar activeRoute={activeRoute} isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
-			<Header toggleSidebar={toggleSidebar} contentTitle={contentTitle} />
+			<Header toggleSidebar={sidebarContext.toggleSidebar} contentTitle={contentTitle} />
 			{RouteComponent}
 		</>
 	);
