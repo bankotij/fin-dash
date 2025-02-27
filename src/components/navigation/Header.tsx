@@ -1,11 +1,12 @@
 import { Search, Settings, Bell, User2, Menu } from "lucide-react";
 import { useState } from "react";
+import { SearchInput } from "./SearchInput";
 
 const Header = ({ toggleSidebar, contentTitle }) => {
 	const [searchVisible, setSearchVisible] = useState(false);
 
 	return (
-		<div className="lg:ml-64">
+		<div className="lg:ml-64  duration-300 ">
 			<header className="flex-column items-center justify-between w-full pl-6 pr-6 p-4 bg-white">
 				<div className="flex justify-between w-full">
 					<div className="flex items-center">
@@ -30,12 +31,7 @@ const Header = ({ toggleSidebar, contentTitle }) => {
 							<div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
 								<Search className="h-5 w-5 text-gray-400" />
 							</div>
-
-							<input
-								type="text"
-								placeholder="Search for something"
-								className="pl-10 pr-4 py-2 w-full md:w-64 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-							/>
+							<SearchInput />
 						</div>
 						<button
 							className="p-2 rounded-full hover:bg-gray-100 md:hidden"
@@ -63,11 +59,7 @@ const Header = ({ toggleSidebar, contentTitle }) => {
 					{searchVisible && (
 						<>
 							<div className={`visible md:hidden`}>
-								<input
-									type="text"
-									placeholder="Search for something"
-									className="md:hidden mt-1 pl-13 pr-4 py-2 w-full md:w-64 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-								/>
+								<SearchInput />
 							</div>
 						</>
 					)}
