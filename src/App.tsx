@@ -3,7 +3,7 @@ import { Content } from "./components/Content";
 import { Layout } from "./components/Containers/Layout";
 import { AppProvider } from "./utils/context/AppProvider";
 import { Sidebar } from "./components/Navigation/Sidebar";
-import Settings from "./components/ProfileForm";
+import Settings from "./components/Settings";
 
 function App() {
   return (
