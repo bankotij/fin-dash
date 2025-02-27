@@ -3,6 +3,7 @@ import { Content } from "./components/Content";
 import { Layout } from "./components/Containers/Layout";
 import { AppProvider } from "./utils/context/AppProvider";
 import { Sidebar } from "./components/Navigation/Sidebar";
+import Settings from "./components/ProfileForm";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Sidebar />
       <Routes>
         <Route path="/" element={<Content contentTitle="Overview" activeRoute="/" RouteComponent={<Layout />} />} />
-        <Route path="/settings" element={<Content contentTitle="Settings" activeRoute="/settings" RouteComponent={<></>}/>} />
+        <Route path="/settings" element={<Content contentTitle="Settings" activeRoute="/settings" RouteComponent={<Settings />}/>} />
       </Routes>
     </AppProvider>
   );
