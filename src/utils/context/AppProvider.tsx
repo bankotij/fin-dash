@@ -24,7 +24,7 @@ const defaultAppContext: AppContextProps = {
 
 const AppContext = createContext(defaultAppContext);
 
-const AppProvider = ({ children }) => {
+const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeRoute, setActiveRoute] = useState("/");
 

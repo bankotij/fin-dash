@@ -2,7 +2,12 @@ import { Search, Settings, Bell, User2, Menu } from "lucide-react";
 import { useState } from "react";
 import { SearchInput } from "./SearchInput";
 
-const Header = ({ toggleSidebar, contentTitle }) => {
+interface HeaderProps {
+	toggleSidebar: () => void;
+	contentTitle: string;
+}
+
+const Header = ({ toggleSidebar, contentTitle }: HeaderProps) => {
 	const [searchVisible, setSearchVisible] = useState(false);
 
 	return (

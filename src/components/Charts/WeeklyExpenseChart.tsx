@@ -103,20 +103,25 @@ export function WeeklyActivityChart() {
 	const [isError, setIsError] = useState(false);
 
 	useEffect(() => {
-		axios.get(API_BASE_URL + "/api/getWeeklyExpense").then((res) => {
-			console.log(res);
-			if (res.status === 200) {
-				data.labels = res.data.body.weeklyExpenseData.labels;
-				data.datasets[0].data =
-					res.data.body.weeklyExpenseData.datasets.withdrawData;
-				data.datasets[1].data =
-					res.data.body.weeklyExpenseData.datasets.depositData;
-			} else {
+		axios
+			.get(API_BASE_URL + "/api/getWeeklyExpense")
+			.then((res) => {
+				if (res.status === 200) {
+					data.labels = res.data.body.weeklyExpenseData.labels;
+					data.datasets[0].data =
+						res.data.body.weeklyExpenseData.datasets.withdrawData;
+					data.datasets[1].data =
+						res.data.body.weeklyExpenseData.datasets.depositData;
+				} else {
+					setIsError(true);
+				}
+			})
+			.catch(() => {
 				setIsError(true);
-				console.log("Error fetching cards");
-			}
-			setIsLoading(false);
-		});
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
 	}, []);
 
 	if (isError) {

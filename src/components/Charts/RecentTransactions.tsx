@@ -18,16 +18,21 @@ export const RecentTransactions = () => {
 	const [transactions, setTransactions] = useState<Transaction[]>([]);
 
 	useEffect(() => {
-		axios.get(API_BASE_URL + "/api/getTransactions").then((res) => {
-			console.log(res);
-			if (res.status === 200) {
-				setTransactions(res.data.body.transactions);
-			} else {
+		axios
+			.get(API_BASE_URL + "/api/getTransactions")
+			.then((res) => {
+				if (res.status === 200) {
+					setTransactions(res.data.body.transactions);
+				} else {
+					setIsError(true);
+				}
+			})
+			.catch(() => {
 				setIsError(true);
-				console.log("Error fetching cards");
-			}
-			setIsLoading(false);
-		});
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
 	}, []);
 
 	const getIcon = (type: Transaction["type"]) => {

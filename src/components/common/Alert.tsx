@@ -1,5 +1,5 @@
 export interface AlertProps {
-	type: string;
+	type: "success" | "error";
 	message: string;
 }
 

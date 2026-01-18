@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -25,6 +25,22 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
+// Custom plugin to apply gradient background
+const gradientPlugin = {
+  id: "gradientBackground",
+  beforeDraw: (chart: ChartJS<"line">) => {
+    const ctx = chart.ctx;
+    const chartArea = chart.chartArea;
+    if (!chartArea) return;
+
+    const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+    gradient.addColorStop(0, "rgba(64,112,255,0.5)");
+    gradient.addColorStop(1, "rgba(64,112,255,0)");
+
+    chart.data.datasets[0].backgroundColor = gradient;
+  },
+};
 
 const options: ChartOptions<"line"> = {
   responsive: true,
@@ -56,8 +72,7 @@ const options: ChartOptions<"line"> = {
       grid: {
         color: "#F3F3F5",
       },
-	  // TODO: Make this dynamic
-	  min: 0,
+      min: 0,
       max: 25000,
       ticks: {
         stepSize: 2500,
@@ -74,9 +89,8 @@ const initialData = {
   datasets: [
     {
       label: "Balance",
-      data: [3042, 6066 , 22505, 10402, 18002, 8471, 15231],
+      data: [3042, 6066, 22505, 10402, 18002, 8471, 15231],
       borderColor: "#4070FF",
-      // This placeholder will be replaced with the gradient
       backgroundColor: "rgba(64,112,255,0.3)",
       tension: 0.3,
       fill: true,
@@ -87,24 +101,7 @@ const initialData = {
 };
 
 export function BalanceHistoryTracker() {
-  const chartRef = useRef<ChartJS | null>(null);
-
-  useEffect(() => {
-    if (chartRef.current) {
-      const chart = chartRef.current;
-      const ctx = chart.ctx;
-      const chartArea = chart.chartArea;
-      if (!chartArea) return; // wait until chart area is available
-
-      // Create a vertical gradient from top to bottom of the chart area
-      const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
-      gradient.addColorStop(0, "rgba(64,112,255,0.5)");
-      gradient.addColorStop(1, "rgba(64,112,255,0)");
-
-      chart.data.datasets[0].backgroundColor = gradient;
-      chart.update();
-    }
-  }, [chartRef.current?.chartArea]);
+  const chartRef = useRef<ChartJS<"line"> | null>(null);
 
   return (
     <div>
@@ -112,7 +109,7 @@ export function BalanceHistoryTracker() {
         <h2 className="text-lg font-semibold">Balance History</h2>
       </div>
       <div style={{ height: "300px" }}>
-        <Line ref={chartRef} options={options} data={initialData} />
+        <Line ref={chartRef} options={options} data={initialData} plugins={[gradientPlugin]} />
       </div>
     </div>
   );

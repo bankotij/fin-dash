@@ -13,13 +13,13 @@ type NavigationPath = {
 
 const navigationPaths: NavigationPath[] = [
 	{ name: "Dashboard", path: "/", icon: HomeIcon, isDisabled: false },
-	{ name: "Transactions", path: "/transactions", icon: DollarSignIcon, isDisabled: true },
-	{ name: "Accounts", path: "/accounts", icon: BriefcaseIcon, isDisabled: true },
-	{ name: "Investments", path: "/investments", icon: BanknoteIcon, isDisabled: true },
-	{ name: "Cards", path: "/cards", icon: CreditCardIcon, isDisabled: true },
-	{ name: "Loans", path: "/loans", icon: DollarSignIcon, isDisabled: true },
-	{ name: "Services", path: "/services", icon: ServerIcon, isDisabled: true },
-	{ name: "Privileges", path: "/privileges", icon: ShieldIcon, isDisabled: true },
+	{ name: "Transactions", path: "/transactions", icon: DollarSignIcon, isDisabled: false },
+	{ name: "Accounts", path: "/accounts", icon: BriefcaseIcon, isDisabled: false },
+	{ name: "Investments", path: "/investments", icon: BanknoteIcon, isDisabled: false },
+	{ name: "Cards", path: "/cards", icon: CreditCardIcon, isDisabled: false },
+	{ name: "Loans", path: "/loans", icon: DollarSignIcon, isDisabled: false },
+	{ name: "Services", path: "/services", icon: ServerIcon, isDisabled: false },
+	{ name: "Privileges", path: "/privileges", icon: ShieldIcon, isDisabled: false },
 	{ name: "Settings", path: "/settings", icon: SettingsIcon, isDisabled: false },
 ];
 

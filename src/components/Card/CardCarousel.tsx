@@ -1,12 +1,7 @@
 import axios from "axios";
 import { API_BASE_URL } from "../../utils/mock/mockData";
 import { useEffect, useState } from "react";
-import Loader, {
-	CardLoader,
-	FinanceCardLoader,
-} from "../common/Loaders/Loader";
-
-// TODO: Match this as per figma.
+import { FinanceCardLoader } from "../common/Loaders/Loader";
 interface CreditCardProps {
 	balance: string;
 	cardHolder: string;
@@ -44,16 +39,21 @@ export const CardCarousel = () => {
 	const [isError, setIsError] = useState(false);
 	const [cards, setCards] = useState<CreditCardProps[]>([]);
 	useEffect(() => {
-		axios.get(API_BASE_URL + "/api/getCards").then((res) => {
-			console.log(res);
-			if (res.status === 200) {
-				setCards(res.data.body.cards);
-			} else {
+		axios
+			.get(API_BASE_URL + "/api/getCards")
+			.then((res) => {
+				if (res.status === 200) {
+					setCards(res.data.body.cards);
+				} else {
+					setIsError(true);
+				}
+			})
+			.catch(() => {
 				setIsError(true);
-				console.log("Error fetching cards");
-			}
-			setIsLoading(false);
-		});
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
 	}, []);
 
 	if (isError) {
