@@ -29,7 +29,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [activeRoute, setActiveRoute] = useState("/");
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarOpen((current) => !current);
   };
 
   const sidebarContext = {
