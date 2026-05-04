@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { LinkWithIcon } from "./LinkWithIcon";
-import { SoarTask } from "../common/Logos/SoarTask";
+import { FinDashLogo } from "../common/Logos/FinDashLogo";
 import { useContext } from "react";
 import { AppContext } from "../../utils/context/AppProvider";
 import { HomeIcon, SettingsIcon, CreditCardIcon, DollarSignIcon, BriefcaseIcon, BanknoteIcon, ServerIcon, ShieldIcon } from "lucide-react";
@@ -42,10 +43,12 @@ export function Sidebar() {
 				} lg:translate-x-0`}
 				aria-label="Sidebar"
 			>
-				<div className="h-full px-3 py-4 overflow-y-auto bg-white">
-					<ul className="space-y-2 font-medium">
-						<li className="mb-[16px] ml-4">
-							<SoarTask />
+				<div className="h-full overflow-y-auto border-r border-slate-200/80 bg-gradient-to-b from-white via-slate-50/90 to-slate-50 px-3 py-5 shadow-[4px_0_24px_-8px_rgba(15,23,42,0.08)]">
+					<ul className="space-y-1 font-medium">
+						<li className="mb-5">
+							<Link to="/" className="block outline-none">
+								<FinDashLogo />
+							</Link>
 						</li>
 
 						{navigationPaths.map(({ name, path, icon: Icon, isDisabled }, index) => (

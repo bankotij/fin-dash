@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_BASE_URL } from "../../utils/mock/mockData";
+import { FALLBACK_CAROUSEL_CARDS } from "../../utils/mock/fallbackDashboard";
 import { Plus, CreditCard, Lock, Unlock, Eye, EyeOff, Snowflake, Trash2 } from "lucide-react";
 
 interface Card {
@@ -19,14 +20,24 @@ const Cards = () => {
 	const [showCardNumber, setShowCardNumber] = useState<{ [key: number]: boolean }>({});
 
 	useEffect(() => {
+		const fallback = () => setCards(FALLBACK_CAROUSEL_CARDS);
+
+		if (!API_BASE_URL) {
+			fallback();
+			setIsLoading(false);
+			return;
+		}
+
 		axios
 			.get(API_BASE_URL + "/api/getCards")
 			.then((res) => {
-				if (res.status === 200) {
+				if (res.status === 200 && res.data?.body?.cards?.length) {
 					setCards(res.data.body.cards);
+				} else {
+					fallback();
 				}
 			})
-			.catch(() => {})
+			.catch(fallback)
 			.finally(() => setIsLoading(false));
 	}, []);
 

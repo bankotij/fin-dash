@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_BASE_URL } from "../../utils/mock/mockData";
+import { FALLBACK_TRANSACTIONS } from "../../utils/mock/fallbackDashboard";
 import { CreditCard, DollarSign, ArrowUpRight, ArrowDownLeft, Search } from "lucide-react";
 
 interface Transaction {
@@ -18,14 +19,24 @@ const Transactions = () => {
 	const [searchQuery, setSearchQuery] = useState("");
 
 	useEffect(() => {
+		const fallback = () => setTransactions(FALLBACK_TRANSACTIONS);
+
+		if (!API_BASE_URL) {
+			fallback();
+			setIsLoading(false);
+			return;
+		}
+
 		axios
 			.get(API_BASE_URL + "/api/getTransactions")
 			.then((res) => {
-				if (res.status === 200) {
+				if (res.status === 200 && res.data?.body?.transactions?.length) {
 					setTransactions(res.data.body.transactions);
+				} else {
+					fallback();
 				}
 			})
-			.catch(() => {})
+			.catch(fallback)
 			.finally(() => setIsLoading(false));
 	}, []);
 

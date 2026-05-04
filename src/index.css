@@ -23,6 +23,7 @@
   }
   
 body {
+	font-family: "DM Sans", system-ui, -apple-system, sans-serif;
 	background-color: #e6eff5;
 	color: #343c6a;
 }

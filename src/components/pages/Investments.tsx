@@ -63,7 +63,7 @@ const Investments = () => {
 				<div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-xl p-6 text-white">
 					<div className="flex items-center gap-2 text-purple-200 text-sm">
 						<Wallet className="w-4 h-4" />
-						<span>Portfolio Value</span>
+						<span>Total holdings</span>
 					</div>
 					<p className="text-3xl font-bold mt-2">${totalValue.toLocaleString()}</p>
 					<div className={`flex items-center gap-1 mt-2 text-sm ${totalChange > 0 ? "text-emerald-300" : "text-red-300"}`}>
