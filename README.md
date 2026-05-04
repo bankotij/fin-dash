@@ -1,5 +1,9 @@
 # Fin Dash
 
+**Live demo:** [fin-dash-example.vercel.app](https://fin-dash-example.vercel.app/)
+
+This project is a **frontend-heavy prototype**: most flows use simulated or placeholder data and are not connected to real financial institutions.
+
 ## 1. Project Overview
 Fin Dash is a client-only financial dashboard UI built with React and Vite. It
 demonstrates dashboard layouts, charts, and navigation using mock data and does
