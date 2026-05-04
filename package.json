@@ -8,11 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "mocks": "npm run dev -w vite-plugin-mock-server/example"
-},
-  "workspaces": [
-    "vite-plugin-mock-server/example"
-  ],
+    "mocks": "npm run dev --prefix vite-plugin-mock-server/example"
+  },
   "dependencies": {
     "@chakra-ui/toast": "^7.0.2",
     "@radix-ui/react-tabs": "^1.1.3",
