@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_BASE_URL } from "../../utils/mock/mockData";
-import { Plus, CreditCard, Lock, Unlock, MoreVertical, Eye, EyeOff, Snowflake, Trash2 } from "lucide-react";
+import { Plus, CreditCard, Lock, Unlock, Eye, EyeOff, Snowflake, Trash2 } from "lucide-react";
 
 interface Card {
 	balance: string;

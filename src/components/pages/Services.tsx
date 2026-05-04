@@ -179,7 +179,6 @@ const Services = () => {
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 						{comingSoonServices.map((service) => {
 							const Icon = service.icon;
-							const colors = colorClasses[service.color];
 							return (
 								<div
 									key={service.id}

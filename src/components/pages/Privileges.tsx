@@ -1,16 +1,14 @@
 import { useState } from "react";
-import { 
-	Crown, 
-	Gift, 
-	Percent, 
-	Plane, 
-	Coffee, 
-	ShoppingBag, 
-	Utensils, 
+import {
+	Crown,
+	Plane,
+	Coffee,
+	ShoppingBag,
+	Utensils,
 	Ticket,
 	Star,
 	ChevronRight,
-	Lock
+	Lock,
 } from "lucide-react";
 
 interface Privilege {
@@ -103,16 +101,8 @@ const tierColors = {
 	platinum: { bg: "bg-purple-50", text: "text-purple-700", badge: "bg-purple-100" },
 };
 
-const categoryIcons = {
-	travel: Plane,
-	dining: Utensils,
-	shopping: ShoppingBag,
-	entertainment: Ticket,
-};
-
 const Privileges = () => {
 	const [selectedCategory, setSelectedCategory] = useState<string>("all");
-	const currentTier = "gold";
 
 	const filteredPrivileges = privileges.filter(
 		(p) => selectedCategory === "all" || p.category === selectedCategory

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_BASE_URL } from "../../utils/mock/mockData";
-import { CreditCard, DollarSign, ArrowUpRight, ArrowDownLeft, Filter, Search } from "lucide-react";
+import { CreditCard, DollarSign, ArrowUpRight, ArrowDownLeft, Search } from "lucide-react";
 
 interface Transaction {
 	id: string;

@@ -57,7 +57,7 @@ export const CardLoader = ({ variant = "blue", text = "Loading...", className, .
 	);
 };
 
-export const FinanceCardLoader = ({ variant = "blue", className, ...props }: LoaderProps & { className?: string }) => {
+export const FinanceCardLoader = ({ variant = "blue", className }: LoaderProps & { className?: string }) => {
 	const combineClasses = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(" ");
 
 	const bgColors = {
@@ -83,7 +83,7 @@ export const FinanceCardLoader = ({ variant = "blue", className, ...props }: Loa
 	);
 };
 
-export const ChartLoader = ({ className, chartType = "bar", ...props }: LoaderProps & { className?: string; chartType?: "bar" | "pie" }) => {
+export const ChartLoader = ({ className, chartType = "bar" }: LoaderProps & { className?: string; chartType?: "bar" | "pie" }) => {
 	const combineClasses = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(" ");
 
 	return (

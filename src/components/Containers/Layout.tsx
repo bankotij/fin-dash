@@ -3,6 +3,7 @@ import { CardCarousel } from "../Card/CardCarousel";
 import { ExpenseStatistics } from "../Charts/ExpenseStatistics";
 import { RecentTransactions } from "../Charts/RecentTransactions";
 import { WeeklyActivityChart } from "../Charts/WeeklyExpenseChart";
+import { DashboardHero } from "../DashboardHero";
 import { QuickTransfer } from "../QuickTransfer";
 import { BaseLayoutCard } from "./BaseLayoutCard";
 
@@ -22,6 +23,7 @@ export const Layout = () => {
 	return (
 		<>
 			<div className="p-6 lg:ml-64">
+				<DashboardHero />
 				<div className="grid grid-cols-1 gap-6">
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 						{BaseLayoutElements.FirstRowElements.map((element, index) => (

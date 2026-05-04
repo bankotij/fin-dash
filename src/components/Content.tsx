@@ -1,5 +1,5 @@
 import {  useContext, useEffect } from "react";
-import Header from "./Navigation/Header";
+import Header from "./navigation/Header";
 import { AppContext } from "../utils/context/AppProvider";
 
 interface ContentProps {

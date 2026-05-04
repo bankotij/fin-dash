@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Content } from "./components/Content";
 import { Layout } from "./components/Containers/Layout";
 import { AppProvider } from "./utils/context/AppProvider";
-import { Sidebar } from "./components/Navigation/Sidebar";
+import { Sidebar } from "./components/navigation/Sidebar";
 import { ErrorBoundary } from "./components/common/ErrorBoundary";
 import Settings from "./components/Settings";
 import Transactions from "./components/pages/Transactions";
