@@ -1,4 +1,7 @@
-export const API_BASE_URL = "http://localhost:3000";
+/** Dev: localhost mock. Prod: set `VITE_API_BASE_URL` on the host if you run the mock API elsewhere. */
+export const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL?.trim() ||
+  (import.meta.env.DEV ? "http://localhost:3000" : "");
 
 
 export const SAMPLE_USERS = [
